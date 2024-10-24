@@ -69,10 +69,10 @@ pipeline {
               def BUILD_NUMBER = env.BUILD_NUMBER ?: '1' 
                   sh """
                     echo "Replacing ${BUILD_NUMBER-1} with ${BUILD_NUMBER} in deployment.yml"
-                    sed -i 's|image: .*|image: $NEW_IMAGE_NAME|' java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                    sed -i 's|image: .*|image: $NEW_IMAGE_NAME|' /var/lib/jenkins/workspace/CICD/edwin-project/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                         
                     # Show updated file content
-                    cat java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                    cat /var/lib/jenkins/workspace/CICD/edwin-project/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifes/deployment.yml
                    """
                 }
             }
