@@ -83,7 +83,7 @@ pipeline {
                 script {
                     sh '''  
                         # Configure git
-                        git config --global --add safe.directory /var/lib/jenkins/workspace/CI-Pipeline
+                        git config --global --add safe.directory /var/lib/jenkins/workspace/CICD
                         git config user.name "${GIT_USER_NAME}"
                         git config user.email "${GIT_USER_EMAIL}"
                         # Add changes to the git index
