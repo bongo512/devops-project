@@ -78,7 +78,11 @@ pipeline {
             }
     }
     stage('Commit and Push') {
-            steps {
+                 environment {
+                  GIT_REPO_NAME = "devops-project"
+                  GIT_USER_NAME = "edwinbienose"
+               }
+             steps {
                 withCredentials([string(credentialsId: 'git-cred', variable: 'GITHUB_TOKEN')]) {
                 script {
                     sh '''  
