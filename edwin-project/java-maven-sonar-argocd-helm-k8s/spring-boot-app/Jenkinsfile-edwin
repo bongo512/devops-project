@@ -10,7 +10,7 @@ pipeline {
         GIT_USER_NAME = "edwinbienose"
         GIT_USER_EMAIL = "edwinbienose512@gmail.com"
         BRANCH_NAME = 'main' // Change if using a different branch
-        GIT_CREDENTIALS_ID = 'new-cred' // The ID of the Jenkins credential you created
+        GIT_CREDENTIALS_ID = 'newtoken' // The ID of the Jenkins credential you created
         GIT_REPO_NAME = 'devops-project'
         NEW_IMAGE_NAME = "edwin512/cicd-project:${BUILD_NUMBER}"
   }
@@ -85,7 +85,7 @@ pipeline {
                   GIT_USER_NAME = "edwinbienose"
                }
              steps {
-                withCredentials([string(credentialsId: 'new-cred', variable: 'GITHUB_TOKEN')]) {
+                withCredentials([string(credentialsId: 'newtoken', variable: 'GITHUB_TOKEN')]) {
                 script {
                     sh '''  
                         # Configure git
@@ -99,7 +99,7 @@ pipeline {
                         git commit -m "Update deployment image to version ${BUILD_NUMBER}" || echo "No changes to commit"
                         
                         # Push changes with authentication
-                        git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git HEAD:main
+                        git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                     '''
                 }
               }
