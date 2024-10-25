@@ -93,7 +93,7 @@ pipeline {
                         git config user.name "${GIT_USER_NAME}"
                         git config user.email "${GIT_USER_EMAIL}"
                         # Add changes to the git index
-                        git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                        git add /var/lib/jenkins/workspace/CICD/edwin-project/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                         
                         # Commit changes
                         git commit -m "Update deployment image to version ${BUILD_NUMBER}" || echo "No changes to commit"
